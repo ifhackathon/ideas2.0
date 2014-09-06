@@ -13,4 +13,8 @@
 
 class ProjectMaterial < ActiveRecord::Base
   belongs_to :project
+
+  validates :name, presence: true
+  validates :quantity, presence: true
+  validates :measure, presence: true
 end

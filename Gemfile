@@ -26,6 +26,7 @@ group :development do
   gem 'quiet_assets'
   gem "binding_of_caller"
   gem 'rails_layout', github: 'RailsApps/rails_layout'
+  gem 'faker'
 end
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'

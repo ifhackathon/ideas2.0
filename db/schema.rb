@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20140906170556) do
   create_table "project_people_times", force: true do |t|
     t.string   "name"
     t.string   "day"
-    t.string   "integer"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "project_id"

@@ -17,10 +17,16 @@
 
 class Project < ActiveRecord::Base
   include AASM
+
   belongs_to :user
   has_many :project_finance_costs
   has_many :project_materials
   has_many :project_people_times
+
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :status, presence: true
+  validates :date_to, presence: true
 
   aasm :column => 'status' do
     state :in_process, :initial => true
