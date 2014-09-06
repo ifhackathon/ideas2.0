@@ -19,6 +19,9 @@ gem 'simple_form'
 gem 'foundation-rails'
 gem 'carrierwave'
 gem 'omniauth-facebook'
+gem 'aasm'
+gem 'rails_admin', require: 'rails_admin', github: 'sferik/rails_admin'
+gem 'figaro', '>= 1.0.0.rc1'
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
@@ -33,6 +36,7 @@ end
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.

@@ -13,6 +13,38 @@
 
 ActiveRecord::Schema.define(version: 20140906173847) do
 
+  create_table "project_finance_costs", force: true do |t|
+    t.string   "name"
+    t.float    "money"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "project_id"
+  end
+
+  add_index "project_finance_costs", ["project_id"], name: "index_project_finance_costs_on_project_id"
+
+  create_table "project_materials", force: true do |t|
+    t.string   "name"
+    t.float    "quantity"
+    t.string   "measure"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "project_id"
+  end
+
+  add_index "project_materials", ["project_id"], name: "index_project_materials_on_project_id"
+
+  create_table "project_people_times", force: true do |t|
+    t.string   "name"
+    t.string   "day"
+    t.string   "integer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "project_id"
+  end
+
+  add_index "project_people_times", ["project_id"], name: "index_project_people_times_on_project_id"
+
   create_table "projects", force: true do |t|
     t.string   "name"
     t.string   "description"
@@ -20,7 +52,13 @@ ActiveRecord::Schema.define(version: 20140906173847) do
     t.string   "date_to"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "place"
+    t.string   "video"
+    t.integer  "user_id"
+    t.string   "photo"
   end
+
+  add_index "projects", ["user_id"], name: "index_projects_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
