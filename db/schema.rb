@@ -11,7 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906152124) do
+ActiveRecord::Schema.define(version: 20140906160026) do
+
+  create_table "project_finance_costs", force: true do |t|
+    t.string   "name"
+    t.float    "money"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "project_materials", force: true do |t|
+    t.string   "name"
+    t.float    "quantity"
+    t.string   "measure"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "project_people_times", force: true do |t|
+    t.string   "name"
+    t.string   "day"
+    t.string   "integer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "projects", force: true do |t|
     t.string   "name"
