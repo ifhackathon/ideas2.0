@@ -12,6 +12,7 @@
 #  place       :string(255)
 #  video       :string(255)
 #  user_id     :integer
+#  photo       :string(255)
 #
 
 require 'rails_helper'

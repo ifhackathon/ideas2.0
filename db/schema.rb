@@ -11,14 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906160026) do
+ActiveRecord::Schema.define(version: 20140906170556) do
 
   create_table "project_finance_costs", force: true do |t|
     t.string   "name"
     t.float    "money"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "project_id"
   end
+
+  add_index "project_finance_costs", ["project_id"], name: "index_project_finance_costs_on_project_id"
 
   create_table "project_materials", force: true do |t|
     t.string   "name"
@@ -26,7 +29,10 @@ ActiveRecord::Schema.define(version: 20140906160026) do
     t.string   "measure"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "project_id"
   end
+
+  add_index "project_materials", ["project_id"], name: "index_project_materials_on_project_id"
 
   create_table "project_people_times", force: true do |t|
     t.string   "name"
@@ -34,7 +40,10 @@ ActiveRecord::Schema.define(version: 20140906160026) do
     t.string   "integer"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "project_id"
   end
+
+  add_index "project_people_times", ["project_id"], name: "index_project_people_times_on_project_id"
 
   create_table "projects", force: true do |t|
     t.string   "name"

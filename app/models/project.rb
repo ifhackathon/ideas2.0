@@ -12,11 +12,15 @@
 #  place       :string(255)
 #  video       :string(255)
 #  user_id     :integer
+#  photo       :string(255)
 #
 
 class Project < ActiveRecord::Base
   include AASM
   belongs_to :user
+  has_many :project_finance_costs
+  has_many :project_materials
+  has_many :project_people_times
 
   aasm :column => 'status' do
     state :in_process, :initial => true

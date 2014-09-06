@@ -11,8 +11,6 @@
 #  project_id :integer
 #
 
-require 'rails_helper'
-
-RSpec.describe ProjectMaterials, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+class ProjectMaterial < ActiveRecord::Base
+  belongs_to :project
 end
