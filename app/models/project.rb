@@ -15,5 +15,20 @@
 #
 
 class Project < ActiveRecord::Base
+  include AASM
   belongs_to :user
+
+  status do # default column: aasm_state
+    state :in_process, :initial => true
+    state :successful
+    state :fail
+
+    event :success do
+      transitions :from => :in_process, :to => :successful
+    end
+
+    event :fail do
+      transitions :from => :in_process, :to => :fail
+    end
+  end
 end
