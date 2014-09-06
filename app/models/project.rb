@@ -18,7 +18,7 @@ class Project < ActiveRecord::Base
   include AASM
   belongs_to :user
 
-  status do # default column: aasm_state
+  aasm :column => 'status' do
     state :in_process, :initial => true
     state :successful
     state :fail
