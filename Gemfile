@@ -18,6 +18,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'foundation-rails'
 gem 'carrierwave'
+gem 'omniauth-facebook'
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
