@@ -2,15 +2,16 @@
   %ul.title-area
     %li.name
       %h1
-
         = link_to 'Ideas', root_path
     %li.toggle-topbar.menu-icon
       %a{href: "#"} Menu
   %section.top-bar-section
     %ul.right
-      %li.has-form
-        = link_to "Додати проект", new_project_path, class:'button'
+      %li.has-form= link_to "Додати проект", new_project_path, class:'button'
+      %li= link_to "Проекти", projects_path
+      %li= link_to(current_user.name, edit_user_registration_path) if user_signed_in?
       %li
-        = link_to "Проекти", projects_path
-      %li
-        = link_to "Вхід", new_user_session_path
+        - if user_signed_in?
+          = link_to 'Вихід', destroy_user_session_path, method: 'delete'
+        - else
+          = link_to "Вхід", new_user_session_path

@@ -18,11 +18,16 @@ gem 'devise'
 gem 'simple_form'
 gem 'foundation-rails'
 gem 'carrierwave'
+gem 'omniauth-facebook'
+gem 'aasm'
+gem 'rails_admin', require: 'rails_admin', github: 'sferik/rails_admin'
+gem 'figaro', '>= 1.0.0.rc1'
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
   gem "binding_of_caller"
   gem 'rails_layout', github: 'RailsApps/rails_layout'
+  gem 'faker'
 end
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
