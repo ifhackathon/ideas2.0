@@ -8,7 +8,7 @@
     .row.author
       .small-4.columns
         = image_tag 'http://placehold.it/90x90text=[author]'
-      %h3{ class: 'small-8 columns' } Author Name
+      %h4{ class: 'small-8 columns' } Author Name
     .row
       .support
         Підтримало
@@ -49,7 +49,7 @@
             %td.first Ґрунтовка
             %td 2/2кг.
 
-      
+
     .row
       %h4 Ключові слова
       %span.label Regular Label
@@ -69,7 +69,29 @@
       Загальний опис/механізм реалізації проекту: Ми виготовимо дошки великого формату, пофарбовані чорною фарбою. На них за допомогою трафарету ми нанесемо напис «Доки я живий, я хочу…» та  залишимо проміжки, де учасники зможуть за допомогою крейди продовжити речення на свій розсуд. Ми очікуємо, що цільова аудиторія залишить на стіні свої цілі, які підкріплено справжніми життєвими цінностями й орієнтирами. Кожен наступний учасник зможе прочитати написи, залишені попередниками.
       Проектом ми надаємо цільової аудиторії платформу , де є можливість присвятити кілька хвилин свого життя для вирішення важливих пита       нь сенсу свого існування , своєї місії , цінностей , бажань. Ми надаємо можливість з одного боку анонімно , з іншого боку - публічно висловитися , відповісти на прості з першого погляду питання , тим самим побачити альтернативу звичному способу життя.
 
-
+    %hr
+    %h4 Учасники проекту
+    %ul.small-block-grid-3.users-list
+      %li
+        .left= image_tag 'http://placehold.it/90x90text=[author]'
+        .user
+          %a{ href: '#'} user name
+          %span 4кг гречки
+      %li
+        .left= image_tag 'http://placehold.it/90x90text=[author]'
+        .user
+          %a{ href: '#'} user name
+          %span 4кг гречки
+      %li
+        .left= image_tag 'http://placehold.it/90x90text=[author]'
+        .user
+          %a{ href: '#'} user name
+          %span 4кг гречки
+      %li
+        .left= image_tag 'http://placehold.it/90x90text=[author]'
+        .user
+          %a{ href: '#'} user name
+          %span 4кг гречки
 = link_to 'Edit', edit_project_path(@project)
 \|
 = link_to 'Back', projects_path
