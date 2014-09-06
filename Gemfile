@@ -19,6 +19,8 @@ gem 'simple_form'
 gem 'foundation-rails'
 gem 'carrierwave'
 gem 'aasm'
+gem 'rails_admin', require: 'rails_admin', github: 'sferik/rails_admin'
+gem 'figaro', '>= 1.0.0.rc1'
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
