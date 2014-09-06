@@ -23,6 +23,10 @@ class Project < ActiveRecord::Base
   has_many :project_materials
   has_many :project_people_times
 
+  accepts_nested_attributes_for :project_finance_costs
+  accepts_nested_attributes_for :project_materials
+  accepts_nested_attributes_for :project_people_times
+
   validates :name, presence: true
   validates :description, presence: true
   validates :status, presence: true

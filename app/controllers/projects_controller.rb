@@ -15,6 +15,10 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
+    @project.project_finance_costs.build
+    @project.project_materials.build
+    @project.project_people_times.build
+
   end
 
   # GET /projects/1/edit
