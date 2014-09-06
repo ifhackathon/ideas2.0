@@ -4,11 +4,10 @@
     = image_tag 'http://placehold.it/1500x400&text=[stuff and img]'
 
 %section.row
-  %aside.small-4.columns
-    .row.author
-      .small-4.columns
-        = image_tag 'http://placehold.it/90x90text=[author]'
-      %h4{ class: 'small-8 columns' } Author Name
+  %aside.medium-4.columns
+    .author.text-center
+      = image_tag 'http://placehold.it/90x90text=[author]'
+      %h4 Author Name
     .row
       .support
         Підтримало
@@ -17,9 +16,9 @@
       %a{ href:"#", class:"button radius" } Допомогти проекту
     .row.estimates
       %h4 Кошторис проекту
-      %h5 Інструменти/обладнання
+      %h5 Інструменти
       %table
-        %tbody
+        %tbody{border: 0}
           %tr
             %td.first Ґрунтовка
             %td 2/2кг.
@@ -62,7 +61,7 @@
       %span.label Тег4
 
 
-  .small-8.columns
+  .medium-8.columns
     %h1= @project.name
     %p
       Ціль проекту: надихнути містян замислитися про сенс свого життя і поставити щирі вартісні цілі засобами соціального мистецтва
@@ -71,27 +70,38 @@
 
     %hr
     %h4 Учасники проекту
-    %ul.small-block-grid-3.users-list
+    %ul.large-block-grid-5.medium-block-grid-4.small-block-grid-3.users-list
       %li
-        .left= image_tag 'http://placehold.it/90x90text=[author]'
+        .image
+          = image_tag 'http://placehold.it/90x90text=[author]'
         .user
           %a{ href: '#'} user name
           %span 4кг гречки
       %li
-        .left= image_tag 'http://placehold.it/90x90text=[author]'
+        .image
+          = image_tag 'http://placehold.it/90x90text=[author]'
         .user
           %a{ href: '#'} user name
           %span 4кг гречки
       %li
-        .left= image_tag 'http://placehold.it/90x90text=[author]'
+        .image
+          = image_tag 'http://placehold.it/90x90text=[author]'
         .user
           %a{ href: '#'} user name
           %span 4кг гречки
       %li
-        .left= image_tag 'http://placehold.it/90x90text=[author]'
+        .image
+          = image_tag 'http://placehold.it/90x90text=[author]'
         .user
           %a{ href: '#'} user name
           %span 4кг гречки
+      %li
+        .image
+          = image_tag 'http://placehold.it/90x90text=[author]'
+        .user
+          %a{ href: '#'} user name
+          %span 4кг гречки
+
 = link_to 'Edit', edit_project_path(@project)
 \|
 = link_to 'Back', projects_path
