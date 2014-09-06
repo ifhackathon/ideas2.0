@@ -1,4 +1,16 @@
 %h1 Listing projects
+.row
+  %ul.small-block-grid-2.medium-block-grid-4.large-block-grid-4.project-lists
+    - @projects.each do |project|
+      %li
+        .item
+          %h5
+            = link_to project.name, project
+          .image
+            = image_tag 'http://placehold.it/340x250'
+            %span.count 13 Підтримало
+
+
 
 %table
   %tr
