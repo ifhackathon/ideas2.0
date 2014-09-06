@@ -8,6 +8,8 @@
       %a{href: "#"} Menu
   %section.top-bar-section
     %ul.right
+      %li.has-form
+        = link_to "Додати проект", new_project_path, class:'button'
       %li
         = link_to "Проекти", projects_path
       %li

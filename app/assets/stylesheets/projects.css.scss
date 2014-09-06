@@ -1,3 +1,43 @@
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.support{
+  font-size: 1.15rem;
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+aside .button:visited {
+  color:#fff;
+}
+aside .author {
+  padding: 1rem 0;
+}
+.support span {
+  font-size: 1.5rem;
+  color: #007e40;
+
+}
+.estimates table {
+  font-size:0.8rem;
+  border:none;
+}
+
+.estimates ul li.title {
+  display:block;
+  background:none;
+  clear:both;
+  font-size:1rem;
+  padding: 0.5rem 0 0.1rem;
+}
+.estimates td {
+  text-align:right;
+  padding: 0.2rem;
+  background:#eee;
+}
+.estimates td.first {
+  width:75%;
+  text-align:left;
+}
