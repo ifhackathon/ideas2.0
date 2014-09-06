@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
+gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -15,10 +16,14 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 gem 'haml-rails'
 gem 'devise'
+gem 'devise-i18n'
 gem 'simple_form'
 gem 'foundation-rails'
 gem 'carrierwave'
 gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
+gem 'omniauth-twitter'
+gem 'omniauth-gplus'
 gem 'aasm'
 gem 'rails_admin', require: 'rails_admin', github: 'sferik/rails_admin'
 gem 'figaro', '>= 1.0.0.rc1'

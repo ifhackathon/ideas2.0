@@ -18,6 +18,10 @@ module Ideas2
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+    config.i18n.default_locale = :uk
+    config.i18n.fallbacks = true
+    config.i18n.available_locales = [:uk, :en, :ru]
+    config.omniauth_providers = {facebook: 'Facebook', gplus: 'Google+', twitter: 'Twitter', vkontakte: 'Vkontakte'}
   end
 end

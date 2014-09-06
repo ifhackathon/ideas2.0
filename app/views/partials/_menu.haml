@@ -9,9 +9,12 @@
     %ul.right
       %li.has-form= link_to "Додати проект", new_project_path, class:'button'
       %li= link_to "Проекти", projects_path
-      %li= link_to(current_user.name, edit_user_registration_path) if user_signed_in?
-      %li
-        - if user_signed_in?
-          = link_to 'Вихід', destroy_user_session_path, method: 'delete'
-        - else
+      - if user_signed_in?
+        %li.has-dropdown
+          %a{href: "#"}= current_user.name
+          %ul.dropdown
+            %li= link_to('Змінити дані', edit_user_registration_path)
+            %li= link_to 'Вихід', destroy_user_session_path, method: 'delete'
+      - else
+        %li
           = link_to "Вхід", new_user_session_path

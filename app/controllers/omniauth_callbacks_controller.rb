@@ -1,10 +1,10 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  Devise.mappings[:user].to.omniauth_providers.each do |provider|
+  Rails.application.config.omniauth_providers.each do |provider, name|
     define_method provider.to_s do
       @user = UsersService.find_for_oauth(request.env["omniauth.auth"])
       if @user.persisted?
         sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
-        set_flash_message(:notice, :success, :kind => t("auth.#{provider.to_s}")) if is_navigational_format?
+        set_flash_message(:notice, :success, :kind => name) if is_navigational_format?
       end
     end
   end

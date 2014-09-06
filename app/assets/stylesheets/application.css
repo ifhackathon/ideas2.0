@@ -14,6 +14,41 @@
  *= require_tree .
  *= require_self
  */
+ body {
+   background:#e9e9e9;
+ }
 .button:visited {
   color:#fff;
+}
+
+.button.vkontakte {
+    background-color: #5d82d1;
+}
+
+.button.vkontakte:hover {
+    background-color: #5177c1;
+}
+
+.button.facebook {
+    background-color: #466cbb;
+}
+
+.button.facebook:hover {
+    background-color: #3960af;
+}
+
+.button.twitter {
+    background-color: #40bff5;
+}
+
+.button.twitter:hover {
+    background-color: #30b1e8;
+}
+
+.button.gplus {
+    background-color: #eb5e4c;
+}
+
+.button.gplus:hover {
+    background-color: #dd5847;
 }

@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
-         :omniauth_providers => [:facebook]
+         :omniauth_providers => Rails.application.config.omniauth_providers.keys
 
   has_many :projects
 

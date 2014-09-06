@@ -1,7 +1,9 @@
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+.project-lists li .item{
+  background:#fff;
+}
 
 .support{
   font-size: 1.15rem;
@@ -19,7 +21,7 @@ aside .author {
 }
 .estimates table {
   font-size:0.8rem;
-  border:none;
+  border-collapse:collapse;
 }
 
 .estimates ul li.title {
@@ -40,7 +42,7 @@ aside .author {
 }
 
 .users-list .user{
-  margin-left: 6rem;
+  // margin-left: 6rem;
 }
 .users-list .user a {
   display:block;

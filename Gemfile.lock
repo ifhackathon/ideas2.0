@@ -23,6 +23,15 @@ GIT
       safe_yaml (~> 1.0)
       sass-rails (~> 4.0)
 
+GIT
+  remote: git://github.com/svenfuchs/rails-i18n.git
+  revision: 22f849a9746cb88a8e51bf9ac2370bf5eecfa5b4
+  branch: master
+  specs:
+    rails-i18n (4.0.3)
+      i18n (~> 0.6)
+      railties (~> 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -82,6 +91,7 @@ GEM
       railties (>= 3.2.6, < 5)
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    devise-i18n (0.10.4)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.2.1)
@@ -135,6 +145,7 @@ GEM
     nested_form (0.3.2)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
+    oauth (0.4.7)
     oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
@@ -146,11 +157,23 @@ GEM
       rack (~> 1.0)
     omniauth-facebook (2.0.0)
       omniauth-oauth2 (~> 1.2)
+    omniauth-gplus (2.0.1)
+      omniauth-oauth2 (~> 1.1)
+    omniauth-oauth (1.0.1)
+      oauth
+      omniauth (~> 1.0)
     omniauth-oauth2 (1.2.0)
       faraday (>= 0.8, < 0.10)
       multi_json (~> 1.3)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
+    omniauth-twitter (1.0.1)
+      multi_json (~> 1.3)
+      omniauth-oauth (~> 1.0)
+    omniauth-vkontakte (1.3.2)
+      multi_json
+      omniauth (~> 1.0)
+      omniauth-oauth2 (~> 1.1)
     orm_adapter (0.5.0)
     polyglot (0.3.5)
     quiet_assets (1.0.3)
@@ -246,6 +269,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.0.0)
   devise
+  devise-i18n
   faker
   figaro (>= 1.0.0.rc1)
   foundation-rails
@@ -254,8 +278,12 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   omniauth-facebook
+  omniauth-gplus
+  omniauth-twitter
+  omniauth-vkontakte
   quiet_assets
   rails (= 4.1.5)
+  rails-i18n!
   rails_admin!
   rails_layout!
   rspec-rails (~> 3.0.0)
