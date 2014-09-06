@@ -2,20 +2,13 @@
   %ul.title-area
     %li.name
       %h1
-        %a{href: "#"} My Site
+
+        = link_to 'Ideas', root_path
     %li.toggle-topbar.menu-icon
       %a{href: "#"} Menu
   %section.top-bar-section
     %ul.right
       %li
-        %a{href: "#"} Nav Button
+        = link_to "Проекти", projects_path
       %li
-        %a{href: "#"} Nav Button
-      %li
-        %a{href: "#"} Nav Button
-      %li
-        %a{href: "#"} Nav Button
-      %li
-        %a{href: "#"} Nav Button
-      %li
-        %a{href: "#"} Nav Button
+        = link_to "Вхід", new_user_session_path
