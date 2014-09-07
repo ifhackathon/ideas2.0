@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   devise_for :admins
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  resources :projects
+  resources :projects do
+    get 'estimate/:type/:id', to: 'estimates#new', as: :user_estimate
+  end
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks", registrations: "registrations" }
+  devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks", registrations: "registrations" }
 
   root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.

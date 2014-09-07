@@ -11,6 +11,29 @@
           .status= project.status
           .total-support Підтримало 13
           %hr
-
           %h5
             = link_to 'долучитися', project
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th Status
+    %th Date to
+    %th
+    %th
+    %th
+
+  - @projects.each do |project|
+    %tr
+      %td= project.name
+      %td= project.description
+      %td= project.status
+      %td= project.date_to
+      %td= link_to 'Show', project
+      %td= link_to 'Edit', edit_project_path(project)
+      %td= link_to 'Destroy', project, :method => :delete, :data => { :confirm => 'Are you sure?' }
+%br
+
+- if policy(Project).create?
+  = link_to 'New Project', new_project_path

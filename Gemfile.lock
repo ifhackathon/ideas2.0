@@ -111,6 +111,9 @@ GEM
       thor (~> 0.14)
     font-awesome-rails (4.2.0.0)
       railties (>= 3.2, < 5.0)
+    foundation-icons-sass-rails (3.0.0)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
     foundation-rails (5.4.3.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
@@ -283,6 +286,7 @@ DEPENDENCIES
   devise-i18n
   faker
   figaro (>= 1.0.0.rc1)
+  foundation-icons-sass-rails
   foundation-rails
   haml-rails
   jbuilder (~> 2.0)
