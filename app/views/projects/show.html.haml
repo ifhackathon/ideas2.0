@@ -27,7 +27,7 @@
                 0 /
                 = finance_cost.money
                 грн
-                = link_to project_user_estimate_path(project_id: @project.id, type:'finance_cost', id: finance_cost.id) do
+                = link_to project_user_estimate_path(project_id: @project.id, type:'fc', id: finance_cost.id) do
                   %i.fi-plus
 
 
@@ -42,7 +42,8 @@
                 0 /
                 = project_material.quantity
                 = project_material.measure
-                %i.fi-plus
+                = link_to project_user_estimate_path(project_id: @project.id, type:'pm', id: project_material.id) do
+                  %i.fi-plus
       %h5 Робота
       %table
         %tbody
@@ -53,6 +54,8 @@
                 0 /
                 = project_people_time.day
                 днів
+                = link_to project_user_estimate_path(project_id: @project.id, type:'ppt', id: project_people_time.id) do
+                  %i.fi-plus
 
 
     .row

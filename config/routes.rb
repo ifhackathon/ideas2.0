@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   resources :projects do
-    get 'estimate/:type/:id', to: 'estimates#new', as: :user_estimate
+    resources :estimates, except: [:new, :create, :update] do
+      get ':type/:id', on: :collection, to: 'estimates#new', as: :new, constraints: { type:  /fc|pm|ppt/ }
+      post ':type/:id', on: :collection, to: 'estimates#create', as: :create, constraints: { type:  /fc|pm|ppt/ }
+    end
   end
 
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks", registrations: "registrations" }

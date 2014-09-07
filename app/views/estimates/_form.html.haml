@@ -1,0 +1,9 @@
+.row
+  = simple_form_for(@estimate, url: create_project_estimates_path(@project, params[:type], @estimateble)) do |f|
+    = f.error_notification
+
+    .form-inputs
+      = f.input :value
+
+    .form-actions
+      = f.button :submit
