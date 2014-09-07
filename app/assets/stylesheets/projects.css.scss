@@ -1,8 +1,10 @@
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.project-lists li .item{
+.project-list .project{
   background:#fff;
+  padding-bottom: 1rem;
+  margin: 1rem 0;
 }
 
 .support{
@@ -24,20 +26,13 @@ aside .author {
   border-collapse:collapse;
 }
 
-.estimates ul li.title {
-  display:block;
-  background:none;
-  clear:both;
-  font-size:1rem;
-  padding: 0.5rem 0 0.1rem;
-}
 .estimates td {
   text-align:right;
   padding: 0.2rem;
   background:#eee;
 }
 .estimates td.first {
-  width:75%;
+  width:70%;
   text-align:left;
 }
 

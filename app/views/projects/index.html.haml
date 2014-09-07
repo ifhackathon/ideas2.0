@@ -1,37 +1,16 @@
 %h1 Listing projects
-.row
-  %ul.small-block-grid-2.medium-block-grid-4.large-block-grid-4.project-lists
-    - @projects.each do |project|
-      %li
-        .item
+- @projects.each_slice(4) do |slice|
+  .row.project-list
+    - slice.each do |project|
+      .medium-3.large-3.text-center.columns{class: ('end' if project == slice.last)}
+        .project
+          %img{src: "http://placehold.it/220x220&text=[things]"}/
           %h5
             = link_to project.name, project
-          .image
-            = image_tag 'http://placehold.it/340x250'
-            %span.count 13 Підтримало
+          .date= project.date_to
+          .status= project.status
+          .total-support Підтримало 13
+          %hr
 
-
-
-%table
-  %tr
-    %th Name
-    %th Description
-    %th Status
-    %th Date to
-    %th
-    %th
-    %th
-
-  - @projects.each do |project|
-    %tr
-      %td= project.name
-      %td= project.description
-      %td= project.status
-      %td= project.date_to
-      %td= link_to 'Show', project
-      %td= link_to 'Edit', edit_project_path(project)
-      %td= link_to 'Destroy', project, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Project', new_project_path
+          %h5
+            = link_to 'долучитися', project
