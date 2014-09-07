@@ -1,15 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :admins
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   resources :projects
 
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks", registrations: "registrations" }
-
-  devise_scope :user do
-    get '/users/edit' => 'devise/registrations#edit', as: :edit_user_registration
-    patch '/users' => 'devise/registrations#update', as: nil
-    put '/users' => 'devise/registrations#update', as: :registration
-    delete '/users' => 'devise/registrations#destroy', as: nil
-  end
 
   root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.

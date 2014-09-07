@@ -126,7 +126,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
-  # config.remember_for = 2.weeks
+  config.remember_for = 2.weeks
 
   # Invalidates all the remember me tokens when the user signs out.
   config.expire_all_remember_me_on_sign_out = true
@@ -213,7 +213,7 @@ Devise.setup do |config|
 
   # Set this configuration to false if you want /users/sign_out to sign out
   # only the current scope. By default, Devise signs out all scopes.
-  # config.sign_out_all_scopes = true
+  config.sign_out_all_scopes = false
 
   # ==> Navigation configuration
   # Lists the formats that should be treated as navigational. Formats like
@@ -238,6 +238,21 @@ Devise.setup do |config|
                   Rails.application.secrets.facebook_app_id,
                   Rails.application.secrets.facebook_app_secret,
                   { scope: "email" }
+
+  config.omniauth :vkontakte,
+                  Rails.application.secrets.vkontakte_app_id,
+                  Rails.application.secrets.vkontakte_app_secret,
+                  { scope: 'friends,audio,photos', :lang => I18n.locale.to_s }
+
+  config.omniauth :twitter,
+                  Rails.application.secrets.twitter_api_key,
+                  Rails.application.secrets.twitter_api_secret,
+                  {:authorize_params => { :lang => I18n.locale.to_s }}
+
+  config.omniauth :gplus,
+                  Rails.application.secrets.gplus_api_key,
+                  Rails.application.secrets.gplus_api_secret
+                  { scope: 'email, profile' }
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
