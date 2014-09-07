@@ -1,0 +1,248 @@
+uk:
+  activerecord:
+    models:
+      article: "Статті"
+      article_photo: "Фотто статтей"
+      textile: Тканини
+      textile_color: "Колір"
+      textile_composition: "Склад"
+      textile_manufacturer: "Виробник"
+      textile_texture: "Текстура"
+      textile_transparency: "Прозорість"
+      textile_washing:  "Метод прання"
+      user: "Користувачі"
+      cornice_category: "Категорії карнизів"
+      holder: "Тримачі"
+      pipe: "Труби"
+      leaving: "Закінчення"
+      accessory: "Аксесуари"
+      holder_color: "Колір"
+      holder_diameter: "Діаметр"
+      holder_length: "Довжина"
+      holder_pipe: "Кількість труб"
+      pipe_color: "Колір"
+      pipe_diameter: "Діаметр"
+      pipe_type: "Тип"
+      leaving_color: "Колір"
+      leaving_diameter: "Діаметр"
+      leaving_type: "Тип"
+      accessory_diameter: "Діаметр"
+      accessory_color: "Колір"
+      catalog: "Каталог"
+      model:  "Модель"
+      element:  "Елемент"
+    attributes:
+      catalog:
+        cover: "Зображення"
+        price: "Ціна"
+        is_available: "Є у наявності"
+        pages: "Сторінок"
+        format: "Формат"
+      article:
+        image:  "Зображення"
+      textile:
+        image: "Зображення"
+        price: "Ціна"
+        is_available: "Є у наявності"
+        number: "Артикул"
+        width: "Ширина"
+        density: "Щільність"
+        textile_color: "Колір"
+        textile_texture:  " Текстура"
+        textile_transparency:  "Прозорість"
+        textile_washing:  "Метод прання"
+        textile_manufacturer:  "Виробник"
+        textile_composition:  "Склад"
+      accessory:
+        price: "Ціна"
+        is_available: "Є у наявності"
+        number: "Артикул"
+        accessory_color: "Колір"
+        accessory_diameter:  " Діаметер"
+        cornice_category:  "Категорія"
+      leaving:
+        price: "Ціна"
+        is_available: "Є у наявності"
+        number: "Артикул"
+        leaving_color: "Колір"
+        leaving_diameter:  "Діаметер"
+        cornice_category:  "Категорія"
+        leaving_type:  "Тип"
+      holder:
+        price: "Ціна"
+        is_available: "Є у наявності"
+        number: "Артикул"
+        holder_color: "Колір"
+        holder_diameter:  "Діаметер"
+        cornice_category:  "Категорія"
+        holder_pipe:  "Кількість труб"
+        holder_length: "Довжина"
+      pipe:
+        price: "Ціна"
+        is_available: "Є у наявності"
+        number: "Артикул"
+        holder_color: "Колір"
+        holder_diameter:  "Діаметер"
+        cornice_category:  "Категорія"
+        pipe_type: "Тип"
+        pipe_color: "Колір"
+        pipe_diameter:  "Діаметер"
+        cornice_category:  "Категорія"
+        length: "Довжина"
+      model:
+         price_tailor: "ціна пошиття"
+         price_installation: "ціна монтажу"
+         image: "зображення"
+         elements: "елементи"
+      element:
+        number: Номер
+        textiles: Тканини
+        number_of_elements: Кількість погонних метрів
+
+  admin:
+    js:
+      true: True
+      false: False
+      is_present: Не пусте
+      is_blank: Пусте
+      date: Дата ...
+      between_and_: Між ... та ...
+      today: Сьогодні
+      yesterday: Вчора
+      this_week: Цього тижня
+      last_week: Минулого тижня
+      number: Номер ...
+      contains: Містить
+      is_exactly: Точно співпадає
+      starts_with: Починається із
+      ends_with: Закінчується із
+    loading: "Завантажується..."
+    home:
+      name: "Домівка"
+    pagination:
+      previous: "&laquo; Попередня"
+      next: "Наступна &raquo;"
+      truncate: "…"
+    misc:
+      filter_date_format: "mm/dd/yy" # a combination of 'dd', 'mm' and 'yy' with any delimiter. No other interpolation will be done!
+      search: "Пошук"
+      filter: "Фільтр"
+      refresh: "Обновити"
+      show_all: "Показати все"
+      add_filter: "Додати фільтр"
+      bulk_menu_title: "Вибрані елементи"
+      remove: "Видалити"
+      add_new: "Додати новий"
+      chosen: "Вибрати %{name}"
+      chose_all: "Вибрати все"
+      clear_all: "Очистити все"
+      up: "Вверх"
+      down: "Вниз"
+      navigation: "Навігація"
+      navigation_static_label: "Лінки"
+      log_out: "Вийти"
+      ago: "тому"
+    flash:
+      successful: "%{name} успішно %{action}"
+      error: "неможливо %{action} %{name}"
+      noaction: "Нічого не відбувалось"
+      model_not_found: "Модель '%{model}' не знайдена"
+      object_not_found: "%{model} with id '%{id}' could not be found"
+    table_headers:
+      model_name: "Назва моделі"
+      last_used: "Останні зміни"
+      records: "Записів"
+      username: "Користувач"
+      changes: "Зміни"
+      created_at: "Дата/Час"
+      item: "Елемент"
+      message: "Повідомлення"
+    actions:
+      dashboard:
+        title: "Панель керування"
+        menu: "Панель керування"
+        breadcrumb: "Панель керування"
+      index:
+        title: "Список %{model_label_plural}"
+        menu: "Список"
+        breadcrumb: "%{model_label_plural}"
+      show:
+        title: "Деталі %{model_label} '%{object_label}'"
+        menu: "Перегляд"
+        breadcrumb: "%{object_label}"
+      show_in_app:
+        menu: "Показати"
+      new:
+        title: "Новий %{model_label}"
+        menu: "Додати"
+        breadcrumb: "Новий"
+        link: "Додати новий %{model_label}"
+        done: "створено"
+      edit:
+        title: "Новий %{model_label} '%{object_label}'"
+        menu: "Редагувати"
+        breadcrumb: "Редагувати"
+        link: "Редагувати %{model_label}"
+        done: "створити"
+      delete:
+        title: "Видалити %{model_label} '%{object_label}'"
+        menu: "Видалити"
+        breadcrumb: "Видалити"
+        link: "Видалити '%{object_label}'"
+        done: "видалити"
+      bulk_delete:
+        title: "Видалити %{model_label_plural}"
+        menu: "Мульти видалення"
+        breadcrumb: "мульти видалення"
+        bulk_link: "Видалити вибрані %{model_label_plural}"
+      export:
+        title: "Експорт %{model_label_plural}"
+        menu: "Експорт"
+        breadcrumb: "Експорт"
+        link: "Експорт %{model_label_plural}"
+        bulk_link: "Експорт вибраних %{model_label_plural}"
+        done: "експортувати"
+      history_index:
+        title: "Історія для %{model_label_plural}"
+        menu: "Історія"
+        breadcrumb: "Історія"
+      history_show:
+        title: "Історія для %{model_label} '%{object_label}'"
+        menu: "Історія"
+        breadcrumb: "історія"
+    form:
+      cancel: "Скасувати"
+      basic_info: "Основна інформація"
+      required: "Необхідно"
+      optional: "Необов'язково"
+      one_char: "літера"
+      char_length_up_to: "довжина не більше"
+      char_length_of: "довжина"
+      save: "Зберегти"
+      save_and_add_another: "Зберегти та додати"
+      save_and_edit: "Зберегти та редагувати"
+      all_of_the_following_related_items_will_be_deleted: "? Наступні об'єкти будуть видалені:"
+      are_you_sure_you_want_to_delete_the_object: "Ви впевнені, що хочете видалити %{model_name}"
+      confirmation: "Так, я впевнений"
+      bulk_delete: "Наступні об'єкти будуть видалені, що може зламати зв'язки із іншими об'єктами:"
+      new_model: "%{name} (new)"
+    export:
+      confirmation: "Експортувати до %{name}"
+      select: "Вибрати поля для експорту"
+      select_all_fields: "Вибрати всі поля"
+      fields_from: "Поля із %{name}"
+      fields_from_associated: "Поля із асоціацій %{name}"
+      display: "Показати %{name}: %{type}"
+      options_for: "Налаштування до %{name}"
+      empty_value_for_associated_objects: "<пусто>"
+      click_to_reverse_selection: 'Повернути видалення'
+      csv:
+        header_for_root_methods: "%{name}" # 'model' is available
+        header_for_association_methods: "%{name} [%{association}]"
+        encoding_to: "Декодувати до"
+        encoding_to_help: "Виберіть кодування. Залишти пустим, щоб залишити поточне кодування. (%{name})"
+        skip_header: "Без заголовку"
+        skip_header_help: "Не виводити заголовок"
+        default_col_sep: ","
+        col_sep: "Розділювач стовпчиків"
+        col_sep_help: "Залишіть пустим, щоб залишити по замовчуванню ('%{value}')" # value is default_col_sep
