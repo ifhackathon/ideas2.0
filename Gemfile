@@ -33,6 +33,7 @@ group :development do
   gem "binding_of_caller"
   gem 'rails_layout', github: 'RailsApps/rails_layout'
   gem 'faker'
+  gem 'cocoon'
 end
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'

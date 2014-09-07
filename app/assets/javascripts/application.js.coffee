@@ -15,6 +15,7 @@
 #= require jquery_ujs
 
 #= require foundation
+#= require cocoon
 
 #= require turbolinks
 $ ->

@@ -23,9 +23,9 @@ class Project < ActiveRecord::Base
   has_many :project_materials
   has_many :project_people_times
 
-  accepts_nested_attributes_for :project_finance_costs
-  accepts_nested_attributes_for :project_materials
-  accepts_nested_attributes_for :project_people_times
+  accepts_nested_attributes_for :project_finance_costs, :reject_if => :all_blank, :allow_destroy => true
+  accepts_nested_attributes_for :project_materials, :reject_if => :all_blank, :allow_destroy => true
+  accepts_nested_attributes_for :project_people_times, :reject_if => :all_blank, :allow_destroy => true
 
   validates :name, presence: true
   validates :description, presence: true

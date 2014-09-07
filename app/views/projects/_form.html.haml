@@ -13,6 +13,9 @@
       = f.input :name
   .row
     .large-6.columns
+      = f.input :photo
+  .row
+    .large-6.columns
       = f.input :description
   .row
     .large-6.columns
@@ -28,42 +31,32 @@
       %fieldset
         %legend Фінансові витрати
 
-        =f.simple_fields_for :project_finance_costs do |p|
+        =f.simple_fields_for :project_finance_costs do |project_finance_cost|
+          = render 'project_finance_cost_fields', :f => project_finance_cost
           .row
-            .large-12.columns
-              = p.input :name
-          .row
-            .large-12.columns
-              = p.input :money
+            .links
+              = link_to_add_association 'Додати', f, :project_finance_costs
 
 
     .small-4.large-4.columns
       %fieldset
         %legend Інструменти/обладнання
 
-        =f.simple_fields_for :project_materials do |p|
+        =f.simple_fields_for :project_materials do |project_material|
+          = render 'project_material_fields', f: project_material
           .row
-            .large-12.columns
-              = p.input :name
-          .row
-            .large-12.columns
-              = p.input :quantity
-          .row
-            .large-12.columns
-              = p.input :measure
+            .links
+              = link_to_add_association 'Додати', f, :project_materials
 
 
     .small-6.large-4.columns
       %fieldset
         %legend Роботи та ресурси
 
-        =f.simple_fields_for :project_people_times do |p|
-          .row
-            .large-12.columns
-              = p.input :name
-          .row
-            .large-12.columns
-              = p.input :day
+        =f.simple_fields_for :project_people_times do |project_people_time|
+          = render 'project_people_time_fields', f: project_people_time
+          .links
+            = link_to_add_association 'Додати', f, :project_people_times
 
   .form-actions
     = f.button :submit
