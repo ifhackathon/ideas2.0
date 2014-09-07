@@ -32,6 +32,10 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.user = current_user
 
+    @project.project_finance_costs.build
+    @project.project_materials.build
+    @project.project_people_times.build
+
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
