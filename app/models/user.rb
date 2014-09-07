@@ -27,5 +27,8 @@ class User < ActiveRecord::Base
          :omniauth_providers => Rails.application.config.omniauth_providers.keys
 
   has_many :projects
-
+  has_many :estimates
+  has_many :project_finance_costs, through:  :estimates, source: :estimateble, source_type: "ProjectFinanceCost"
+  has_many :project_people_times, through: :estimates, source: :estimateble, source_type: "ProjectPeopleTime"
+  has_many :project_materials, through: :estimates, source: :estimateble, source_type: "ProjectMaterial"
 end

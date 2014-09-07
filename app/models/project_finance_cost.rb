@@ -13,6 +13,9 @@
 class ProjectFinanceCost < ActiveRecord::Base
   belongs_to :project
 
+  has_many :estimates, as: :estimateble
+  has_many :volunteers, through: :estimates, source: :user
+
   validates :name, presence: true
   validates :money, presence: true
 end
