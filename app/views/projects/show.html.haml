@@ -6,47 +6,49 @@
 %section.row
   %aside.medium-4.columns
     .author.text-center
-      = image_tag 'http://placehold.it/90x90text=[author]'
-      %h4 Author Name
+      = image_tag @project.user.image if @project.user
+      %h4= @project.user.name if @project.user
     .row
       .support
         Підтримало
         %span 14
     .row.text-center
       %a{ href:"#", class:"button radius" } Допомогти проекту
+
     .row.estimates
       %h4 Кошторис проекту
-      %h5 Інструменти
-      %table
-        %tbody{border: 0}
-          %tr
-            %td.first Ґрунтовка
-            %td 2/2кг.
-          %tr
-            %td.first Ґрунтовка
-            %td 2/2кг.
-          %tr
-            %td.first Ґрунтовка
-            %td 2/2кг.
-          %tr
-            %td.first Ґрунтовка
-            %td 2/2кг.
-
-      %h5 Роботи та ресурси
+      %h5 Фінанси
       %table
         %tbody
-          %tr
-            %td.first Прийом пропозицій щодо місця встановлення об'єкту
-            %td 2/2кг.
-          %tr
-            %td.first Ґрунтовка
-            %td 2/2кг.
-          %tr
-            %td.first Ґрунтовка
-            %td 2/2кг.
-          %tr
-            %td.first Ґрунтовка
-            %td 2/2кг.
+          - @project.project_finance_costs.each do |finance_cost|
+            %tr
+              %td.first= finance_cost.name
+              %td
+                0 /
+                = finance_cost.money
+                грн
+
+      %h5 Ресурси
+      %table
+        %tbody
+          - @project.project_materials.each do |project_material|
+            %tr
+              %td.first= project_material.name
+              %td
+                0 /
+                = project_material.quantity
+                = project_material.measure
+
+      %h5 Робота
+      %table
+        %tbody
+          - @project.project_people_times.each do |project_people_time|
+            %tr
+              %td.first= project_people_time.name
+              %td
+                0 /
+                = project_people_time.day
+                днів
 
 
     .row
@@ -63,11 +65,7 @@
 
   .medium-8.columns
     %h1= @project.name
-    %p
-      Ціль проекту: надихнути містян замислитися про сенс свого життя і поставити щирі вартісні цілі засобами соціального мистецтва
-      Загальний опис/механізм реалізації проекту: Ми виготовимо дошки великого формату, пофарбовані чорною фарбою. На них за допомогою трафарету ми нанесемо напис «Доки я живий, я хочу…» та  залишимо проміжки, де учасники зможуть за допомогою крейди продовжити речення на свій розсуд. Ми очікуємо, що цільова аудиторія залишить на стіні свої цілі, які підкріплено справжніми життєвими цінностями й орієнтирами. Кожен наступний учасник зможе прочитати написи, залишені попередниками.
-      Проектом ми надаємо цільової аудиторії платформу , де є можливість присвятити кілька хвилин свого життя для вирішення важливих пита       нь сенсу свого існування , своєї місії , цінностей , бажань. Ми надаємо можливість з одного боку анонімно , з іншого боку - публічно висловитися , відповісти на прості з першого погляду питання , тим самим побачити альтернативу звичному способу життя.
-
+    %p= @project.description
     %hr
     %h4 Учасники проекту
     %ul.large-block-grid-5.medium-block-grid-4.small-block-grid-3.users-list
