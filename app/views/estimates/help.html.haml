@@ -1,0 +1,12 @@
+%h1 New estimate
+
+.row
+  = simple_form_for(@estimate, url: help_create_project_estimates_path(@project)) do |f|
+    = f.error_notification
+
+    .form-inputs
+      = f.input :estimateble_id, collection: @project.project_finance_costs + @project.project_materials + @project.project_people_times
+      = f.input :value
+
+    .form-actions
+      = f.button :submit
