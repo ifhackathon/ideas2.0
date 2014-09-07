@@ -27,6 +27,10 @@
                 0 /
                 = finance_cost.money
                 грн
+                = link_to project_user_estimate_path(project_id: @project.id, type:'finance_cost', id: finance_cost.id) do
+                  %i.fi-plus
+
+
 
       %h5 Ресурси
       %table
@@ -38,7 +42,7 @@
                 0 /
                 = project_material.quantity
                 = project_material.measure
-
+                %i.fi-plus
       %h5 Робота
       %table
         %tbody
