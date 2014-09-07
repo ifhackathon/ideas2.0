@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   resources :projects do
-    resources :estimates, except: [:new, :create, :update] do
+    resources :estimates, except: [:new, :create, :update, :edit] do
       get ':type/:id', on: :collection, to: 'estimates#new', as: :new, constraints: { type:  /fc|pm|ppt/ }
       post ':type/:id', on: :collection, to: 'estimates#create', as: :create, constraints: { type:  /fc|pm|ppt/ }
+      get :help, on: :collection, as: :help
+      post :help_create, on: :collection, as: :help_create, to: 'estimates#create'
     end
   end
 

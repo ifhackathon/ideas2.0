@@ -1,12 +1,16 @@
 class EstimatesController < ApplicationController
   before_action :set_estimate, only: [:show, :edit, :update, :destroy]
-  before_action :set_project, only: [:new, :create]
+  before_action :set_project, only: [:new, :create, :help]
   before_action :set_estimatable, only: [:new, :create]
 
   # GET /estimates
   # GET /estimates.json
   def index
     @estimates = Estimate.all
+  end
+
+  def help
+    @estimate = Estimate.new
   end
 
   # GET /estimates/1
@@ -27,10 +31,12 @@ class EstimatesController < ApplicationController
   # POST /estimates
   # POST /estimates.json
   def create
+    params[:id], params[:type] = estimate_params[:estimateble_id].split('-')
+    set_estimatable
     @estimate = Estimate.new(estimate_params)
     @estimate.user = current_user
     @estimate.project = @project
-    @estimate.estimateble = @estimateble
+    @estimate.estimateble = @estimateble if @estimateble.present?
 
     respond_to do |format|
       if @estimate.save
@@ -86,6 +92,6 @@ class EstimatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def estimate_params
-      params.require(:estimate).permit(:value)
+      params.require(:estimate).permit(:value, :estimateble_id)
     end
 end

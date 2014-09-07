@@ -1,4 +1,3 @@
-%p#notice= notice
 %header.row
   .small-12.columns
     -if @project.photo.present?
@@ -16,7 +15,7 @@
         Підтримало
         %span= @project.estimates.count
     .row.text-center
-      %a{ href:"#", class:"button radius" } Допомогти проекту
+      %a{ href:help_project_estimates_path(@project), class:"button radius" } Допомогти проекту
 
     .row.estimates
       %h4 Кошторис проекту
@@ -24,17 +23,17 @@
       %table
         %tbody
           - @project.project_finance_costs.each do |finance_cost|
+
             %tr
               %td.first= finance_cost.name
               %td
-                0 /
+                = finance_cost.estimates.inject(0){|sum, e| sum+=e.value.to_i}
+                \/
                 = finance_cost.money
                 грн
                 - if policy(@project).estimate_new?
                   = link_to new_project_estimates_path(project_id: @project.id, type:'fc', id: finance_cost.id) do
                     %i.fi-plus
-
-
 
       %h5 Ресурси
       %table
@@ -43,7 +42,8 @@
             %tr
               %td.first= project_material.name
               %td
-                0 /
+                = project_material.estimates.inject(0){|sum, e| sum+=e.value.to_i}
+                \/
                 = project_material.quantity
                 = project_material.measure
                 - if policy(@project).estimate_new?
@@ -56,7 +56,9 @@
             %tr
               %td.first= project_people_time.name
               %td
-                0 /
+                -#TODO додати контркеш
+                = project_people_time.estimates.inject(0){|sum, e| sum+=e.value.to_i}
+                \/
                 = project_people_time.day
                 днів
                 - if policy(@project).estimate_new?
@@ -82,36 +84,16 @@
     %hr
     %h4 Учасники проекту
     %ul.large-block-grid-5.medium-block-grid-4.small-block-grid-3.users-list
-      %li
-        .image
-          = image_tag 'http://placehold.it/90x90text=[author]'
-        .user
-          %a{ href: '#'} user name
-          %span 4кг гречки
-      %li
-        .image
-          = image_tag 'http://placehold.it/90x90text=[author]'
-        .user
-          %a{ href: '#'} user name
-          %span 4кг гречки
-      %li
-        .image
-          = image_tag 'http://placehold.it/90x90text=[author]'
-        .user
-          %a{ href: '#'} user name
-          %span 4кг гречки
-      %li
-        .image
-          = image_tag 'http://placehold.it/90x90text=[author]'
-        .user
-          %a{ href: '#'} user name
-          %span 4кг гречки
-      %li
-        .image
-          = image_tag 'http://placehold.it/90x90text=[author]'
-        .user
-          %a{ href: '#'} user name
-          %span 4кг гречки
+      - @project.estimates.each do |estimate|
+        %li
+          .image.text-center
+            = image_tag estimate.user.image
+          .user
+            %a{ href: '#'}= estimate.user.name
+            %span
+            -#TODO додати одиниці
+              ="#{estimate.value} #{estimate.estimateble.name}"
+
 
 - if policy(@project).update?
   = link_to 'Edit', edit_project_path(@project)
