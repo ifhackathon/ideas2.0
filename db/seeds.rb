@@ -10,15 +10,8 @@ require 'faker'
 puts 'DESTROY ALL ADMINS'
 Admin.destroy_all
 puts 'CREATE ADMIN'
-user = CreateAdminService.new.call
-puts 'user: ' << user.email
-
-puts 'DESTROY ALL USERS'
-User.destroy_all
-puts 'CREATE USER'
-user = CreateUserService.new.call
-puts 'user: ' << user.email
-
+admin = CreateAdminService.new.call
+puts 'user: ' << admin.email
 
 puts 'DESTROY ALL PRODUCT, ETC'
 Project.destroy_all
