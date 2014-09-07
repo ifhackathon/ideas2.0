@@ -16,6 +16,6 @@ class ApplicationController < ActionController::Base
       policy_name = exception.policy.class.to_s.underscore
 
       flash[:alert] = I18n.t "pundit.#{policy_name}.#{exception.query}", default: 'You cannot perform this action.'
-      redirect_to(request.referrer || root_path)
+      redirect_to root_path
     end
 end

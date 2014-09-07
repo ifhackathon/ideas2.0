@@ -102,6 +102,7 @@
           %a{ href: '#'} user name
           %span 4кг гречки
 
-= link_to 'Edit', edit_project_path(@project)
-\|
+- if policy(@project).update?
+  = link_to 'Edit', edit_project_path(@project)
+  \|
 = link_to 'Back', projects_path

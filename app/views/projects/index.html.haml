@@ -34,4 +34,5 @@
 
 %br
 
-= link_to 'New Project', new_project_path
+- if policy(Project).create?
+  = link_to 'New Project', new_project_path
