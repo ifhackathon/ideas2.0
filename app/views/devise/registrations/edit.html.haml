@@ -11,11 +11,6 @@
           Currently waiting confirmation for: #{resource.unconfirmed_email}
     %fieldset
       = f.input :name
-    %fieldset
-      %p You must enter your current password to make changes.
-      .form-group
-        = f.label :current_password
-        = f.password_field :current_password, class: 'form-control'
     = f.submit 'Update', :class => 'button right'
 .row.authform
   %h3 Cancel Account

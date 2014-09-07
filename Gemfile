@@ -26,6 +26,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-gplus'
 gem 'aasm'
 gem 'rails_admin', require: 'rails_admin', github: 'sferik/rails_admin'
+gem 'rails_admin-i18n', github: 'starchow/rails_admin-i18n'
 gem 'figaro', '>= 1.0.0.rc1'
 group :development do
   gem 'better_errors'

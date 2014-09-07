@@ -24,6 +24,12 @@ GIT
       sass-rails (~> 4.0)
 
 GIT
+  remote: git://github.com/starchow/rails_admin-i18n.git
+  revision: c87456bbceff7b283cfdbf81111de78db2f0ec8d
+  specs:
+    rails_admin-i18n (0.0.9)
+
+GIT
   remote: git://github.com/svenfuchs/rails-i18n.git
   revision: 22f849a9746cb88a8e51bf9ac2370bf5eecfa5b4
   branch: master
@@ -285,6 +291,7 @@ DEPENDENCIES
   rails (= 4.1.5)
   rails-i18n!
   rails_admin!
+  rails_admin-i18n!
   rails_layout!
   rspec-rails (~> 3.0.0)
   sass-rails (~> 4.0.3)

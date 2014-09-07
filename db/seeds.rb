@@ -7,13 +7,14 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'faker'
 
-puts 'DESTROY ALL USERS'
-User.destroy_all
-
+puts 'DESTROY ALL ADMINS'
+Admin.destroy_all
 puts 'CREATE ADMIN'
 user = CreateAdminService.new.call
 puts 'user: ' << user.email
 
+puts 'DESTROY ALL USERS'
+User.destroy_all
 puts 'CREATE USER'
 user = CreateUserService.new.call
 puts 'user: ' << user.email
@@ -24,7 +25,6 @@ Project.destroy_all
 ProjectFinanceCost.destroy_all
 ProjectMaterial.destroy_all
 ProjectPeopleTime.destroy_all
-
 
 10.times do |i|
 
