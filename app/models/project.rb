@@ -32,6 +32,9 @@ class Project < ActiveRecord::Base
   validates :status, presence: true
   validates :date_to, presence: true
 
+
+  mount_uploader :photo, ProjectImageUploader
+
   aasm :column => 'status' do
     state :in_process, :initial => true
     state :successful
