@@ -30,6 +30,8 @@ class EstimatesController < ApplicationController
   # POST /estimates
   # POST /estimates.json
   def create
+    params[:id], params[:type] = estimate_params[:estimateble_id].split('-')
+    set_estimatable
     @estimate = Estimate.new(estimate_params)
     @estimate.user = current_user
     @estimate.project = @project
