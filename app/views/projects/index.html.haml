@@ -4,7 +4,10 @@
     - slice.each do |project|
       .medium-3.large-3.text-center.columns{class: ('end' if project == slice.last)}
         .project
-          %img{src: "http://placehold.it/220x220&text=[things]"}/
+          -if project.photo.present?
+            =image_tag(project.photo_url(:thumb))
+          -else
+            %img{src: "http://placehold.it/220x220&text=[things]"}/
           %h5
             = link_to project.name, project
           .date= project.date_to
