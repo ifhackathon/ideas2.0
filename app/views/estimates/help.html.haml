@@ -1,7 +1,7 @@
 %h1 New estimate
 - all =[]
 - @project.project_finance_costs.each do |project_finance_cost|
-  - all<< [project_finance_cost.name, "#{project_finance_cost.id.to_s}-pf" ]
+  - all<< [project_finance_cost.name, "#{project_finance_cost.id.to_s}-fc" ]
 - @project.project_materials.each do |project_material|
   - all<< [project_material.name, "#{project_material.id.to_s}-pm" ]
 - @project.project_people_times.each do |project_people_time|
