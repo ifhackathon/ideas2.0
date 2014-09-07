@@ -1,7 +1,10 @@
 %p#notice= notice
 %header.row
   .small-12.columns
-    = image_tag 'http://placehold.it/1500x400&text=[stuff and img]'
+    -if @project.photo.present?
+      =image_tag(@project.photo_url(:cover))
+    -else
+      = image_tag 'http://placehold.it/1500x400&text=[stuff and img]'
 
 %section.row
   %aside.medium-4.columns
@@ -11,7 +14,7 @@
     .row
       .support
         Підтримало
-        %span 14
+        %span= @project.estimates.count
     .row.text-center
       %a{ href:"#", class:"button radius" } Допомогти проекту
 

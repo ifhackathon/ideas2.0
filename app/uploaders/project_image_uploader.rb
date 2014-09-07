@@ -20,8 +20,13 @@ class ProjectImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :resize_to_fit => [500, nil]
+    process :resize_to_fill => [220, 220]
   end
+
+  version :cover do
+    process :resize_to_fill => [1500, 400]
+  end
+
   #
   # version :title do
   #   process :resize_to_limit => [385, nil]

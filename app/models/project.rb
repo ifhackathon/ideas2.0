@@ -19,6 +19,7 @@ class Project < ActiveRecord::Base
   include AASM
 
   belongs_to :user
+  has_many :estimates
   has_many :project_finance_costs
   has_many :project_materials
   has_many :project_people_times
@@ -32,17 +33,19 @@ class Project < ActiveRecord::Base
   validates :status, presence: true
   validates :date_to, presence: true
 
-  aasm :column => 'status' do
-    state :in_process, :initial => true
+  mount_uploader :photo, ProjectImageUploader
+
+  aasm column: 'status' do
+    state :in_process, initial: true
     state :successful
     state :fail
 
     event :success do
-      transitions :from => :in_process, :to => :successful
+      transitions from: :in_process, to: :successful
     end
 
     event :fail do
-      transitions :from => :in_process, :to => :fail
+      transitions from: :in_process, to: :fail
     end
   end
 end
