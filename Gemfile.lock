@@ -210,6 +210,7 @@ GEM
     rdoc (4.1.1)
       json (~> 1.4)
     remotipart (1.2.1)
+    rmagick (2.13.3)
     rspec-core (3.0.4)
       rspec-support (~> 3.0.0)
     rspec-expectations (3.0.4)
@@ -295,6 +296,7 @@ DEPENDENCIES
   rails_admin!
   rails_admin-i18n!
   rails_layout!
+  rmagick (~> 2.13.1)
   rspec-rails (~> 3.0.0)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
