@@ -30,8 +30,9 @@
                 0 /
                 = finance_cost.money
                 грн
-                = link_to new_project_estimates_path(project_id: @project.id, type:'fc', id: finance_cost.id) do
-                  %i.fi-plus
+                - if policy(@project).estimate_new?
+                  = link_to new_project_estimates_path(project_id: @project.id, type:'fc', id: finance_cost.id) do
+                    %i.fi-plus
 
 
 
@@ -45,8 +46,9 @@
                 0 /
                 = project_material.quantity
                 = project_material.measure
-                = link_to new_project_estimates_path(project_id: @project.id, type:'pm', id: project_material.id) do
-                  %i.fi-plus
+                - if policy(@project).estimate_new?
+                  = link_to new_project_estimates_path(project_id: @project.id, type:'pm', id: project_material.id) do
+                    %i.fi-plus
       %h5 Робота
       %table
         %tbody
@@ -57,8 +59,9 @@
                 0 /
                 = project_people_time.day
                 днів
-                = link_to new_project_estimates_path(project_id: @project.id, type:'ppt', id: project_people_time.id) do
-                  %i.fi-plus
+                - if policy(@project).estimate_new?
+                  = link_to new_project_estimates_path(project_id: @project.id, type:'ppt', id: project_people_time.id) do
+                    %i.fi-plus
 
 
     .row

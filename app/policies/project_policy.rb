@@ -9,6 +9,10 @@ class ProjectPolicy < ApplicationPolicy
     true
   end
 
+  def estimate_new?
+    !is_owner?
+  end
+
   def create?
     true
   end

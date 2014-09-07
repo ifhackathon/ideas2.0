@@ -16,6 +16,7 @@ class EstimatesController < ApplicationController
 
   # GET /estimates/new
   def new
+    authorize @project, :estimate_new?
     @estimate = Estimate.new
   end
 
