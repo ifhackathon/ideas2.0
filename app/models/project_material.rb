@@ -9,6 +9,7 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  project_id :integer
+#  total      :float            default(0.0)
 #
 
 class ProjectMaterial < ActiveRecord::Base

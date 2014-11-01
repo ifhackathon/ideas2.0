@@ -1,0 +1,10 @@
+%ul.large-block-grid-5.medium-block-grid-4.small-block-grid-3.users-list
+  - @project.estimates.includes(:user, :estimateble).each do |estimate|
+    %li
+      .image.text-center
+        = image_tag estimate.user.image if estimate.user
+      .user
+        %a{ href: '#'}= estimate.user.name if estimate.user
+        %span
+          -#TODO додати одиниці
+          ="#{estimate.value} #{estimate.estimateble.name}" if estimate.estimateble.present?

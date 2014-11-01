@@ -15,7 +15,14 @@
         Підтримало
         %span= @project.estimates.count
     .row.text-center
-      %a{ href:help_project_estimates_path(@project), class:"button radius" } Допомогти проекту
+      - if user_signed_in?
+        %a{ href:help_project_estimates_path(@project), class:"button radius" } Допомогти проекту
+      - else
+        %span
+          необхідно&nbsp;
+          %a{ href:new_user_session_path}> увійти
+          , щоб отримати можливість допомогти проекту
+
 
     .row.estimates
       %h4 Кошторис проекту
@@ -27,7 +34,7 @@
             %tr
               %td.first= finance_cost.name
               %td
-                = finance_cost.estimates.inject(0){|sum, e| sum+=e.value.to_i}
+                = finance_cost.total
                 \/
                 = finance_cost.money
                 грн
@@ -42,7 +49,7 @@
             %tr
               %td.first= project_material.name
               %td
-                = project_material.estimates.inject(0){|sum, e| sum+=e.value.to_i}
+                = project_material.total
                 \/
                 = project_material.quantity
                 = project_material.measure
@@ -56,8 +63,7 @@
             %tr
               %td.first= project_people_time.name
               %td
-                -#TODO додати контркеш
-                = project_people_time.estimates.inject(0){|sum, e| sum+=e.value.to_i}
+                = project_people_time.total
                 \/
                 = project_people_time.day
                 днів
@@ -82,18 +88,8 @@
     %h1= @project.name
     %p= @project.description
     %hr
-    %h4 Учасники проекту
-    %ul.large-block-grid-5.medium-block-grid-4.small-block-grid-3.users-list
-      - @project.estimates.each do |estimate|
-        %li
-          .image.text-center
-            = image_tag estimate.user.image
-          .user
-            %a{ href: '#'}= estimate.user.name
-            %span
-              -#TODO додати одиниці
-              ="#{estimate.value} #{estimate.estimateble.name}" if estimate.estimateble.present?
-
+    %h4 Учасники проекту  
+    = render 'users_list'
 
 - if policy(@project).update?
   = link_to 'Edit', edit_project_path(@project)

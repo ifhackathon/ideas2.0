@@ -10,6 +10,7 @@ class EstimatesController < ApplicationController
   end
 
   def help
+    authorize @project, :estimate_new?
     @estimate = Estimate.new
   end
 
@@ -31,18 +32,21 @@ class EstimatesController < ApplicationController
   # POST /estimates
   # POST /estimates.json
   def create
+    authorize @project, :estimate_new?
+    
     if estimate_params[:estimateble_id].present?
       params[:id], params[:type] = estimate_params[:estimateble_id].split('-')
       set_estimatable
     end
-    
-    @estimate = Estimate.new(estimate_params)
-    @estimate.user = current_user
-    @estimate.project = @project
-    @estimate.estimateble = @estimateble if @estimateble.present?
 
+    create_estimate(estimate_params)
+    success = false
+    @estimate.transaction do
+      success = @estimate.save
+      success = @estimateble.save && success
+    end
     respond_to do |format|
-      if @estimate.save
+      if success
         format.html { redirect_to @project, notice: 'Estimate was successfully created.' }
         format.json { render :show, status: :created, location: @estimate }
       else
@@ -92,7 +96,16 @@ class EstimatesController < ApplicationController
           @estimateble = ProjectPeopleTime.find(params[:id])
       end
     end
+    def create_estimate(estimate_params)
+      @estimate = Estimate.new(estimate_params)
+      @estimate.user = current_user
+      @estimate.project = @project
+      if @estimateble.present?
+        @estimate.estimateble = @estimateble
+        @estimateble.total = @estimateble.total + estimate_params[:value].to_f
+      end
 
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def estimate_params
       params.require(:estimate).permit(:value, :estimateble_id)

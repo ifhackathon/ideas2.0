@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140907040657) do
+ActiveRecord::Schema.define(version: 20141101200401) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20140907040657) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "project_id"
+    t.float    "total",      default: 0.0
   end
 
   add_index "project_finance_costs", ["project_id"], name: "index_project_finance_costs_on_project_id"
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(version: 20140907040657) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "project_id"
+    t.float    "total",      default: 0.0
   end
 
   add_index "project_materials", ["project_id"], name: "index_project_materials_on_project_id"
@@ -73,6 +75,7 @@ ActiveRecord::Schema.define(version: 20140907040657) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "project_id"
+    t.float    "total",      default: 0.0
   end
 
   add_index "project_people_times", ["project_id"], name: "index_project_people_times_on_project_id"

@@ -25,7 +25,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
-    authorize @project
+    authorize @project.includes(:estimates)
   end
 
   # POST /projects
