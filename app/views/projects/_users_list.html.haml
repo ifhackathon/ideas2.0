@@ -4,7 +4,7 @@
       .image.text-center
         = image_tag estimate.user.image if estimate.user
       .user
-        %a{ href: '#'}= estimate.user.name if estimate.user
+        = link_to estimate.user.name, user_profile_path(id: estimate.user.id)  if estimate.user
         %span
           -#TODO додати одиниці
           ="#{estimate.value} #{estimate.estimateble.name}" if estimate.estimateble.present?

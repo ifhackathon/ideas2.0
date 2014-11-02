@@ -35,4 +35,14 @@ class User < ActiveRecord::Base
   has_many :project_finance_costs, through:  :estimates, source: :estimateble, source_type: "ProjectFinanceCost"
   has_many :project_people_times, through: :estimates, source: :estimateble, source_type: "ProjectPeopleTime"
   has_many :project_materials, through: :estimates, source: :estimateble, source_type: "ProjectMaterial"
+
+
+  def largeimage
+    "http://graph.facebook.com/#{self.uid}/picture?type=large"
+  end
+  def normalimage
+    "http://graph.facebook.com/#{self.uid}/picture?type=normal"
+  end
 end
+
+

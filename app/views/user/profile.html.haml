@@ -1,0 +1,55 @@
+%section.row
+  %aside.medium-4.columns
+    .author.text-center
+      .image.text-center
+        = image_tag @user.largeimage
+      %h4=  @user.name
+
+  .medium-8.columns
+    %h2 Проекти користувача
+    - @user.projects.each_slice(4) do |slice|
+      .row.project-list
+        - slice.each do |project|
+          .medium-3.large-4.text-center.columns{class: ('end' if project == slice.last)}
+            .project
+              -if project.photo.present?
+                =image_tag(project.photo_url(:thumb))
+              -else
+                %img{src: "http://placehold.it/220x220&text=[things]"}/
+              %h5
+                = link_to project.name, project
+              .date= project.date_to
+              .status= project.status
+              .total-support
+                Підтримало
+                = project.estimates.count
+              %hr
+              %h5
+                = link_to 'долучитися', project
+    %h2
+      Користувач долучився
+      -if @user.estimates
+        - @user.estimates.each_slice(4) do |slice|
+          .row.project-list
+            - slice.each do |estimate|
+              -if estimate.estimateble_type == 'ProjectPeopleTime'
+                .medium-3.large-4.text-center.columns{class: ('end' if estimate == slice.last)}
+                  .project
+                    %h5
+                      = estimate.value+ ' днів'
+                      .name= estimate.estimateble.name
+                      .project= link_to estimate.project.name, estimate.project
+              -if estimate.estimateble_type == 'ProjectFinanceCost'
+                .medium-3.large-4.text-center.columns{class: ('end' if estimate == slice.last)}
+                  .project
+                    %h5
+                      = estimate.value+ ' грн'
+                      .name= estimate.estimateble.name
+                      .project= link_to estimate.project.name, estimate.project
+              -if estimate.estimateble_type == 'ProjectMaterial'
+                .medium-3.large-4.text-center.columns{class: ('end' if estimate == slice.last)}
+                  .project
+                    %h5
+                      = estimate.value+estimate.estimateble.measure
+                      .name= estimate.estimateble.name
+                      .project= link_to estimate.project.name, estimate.project

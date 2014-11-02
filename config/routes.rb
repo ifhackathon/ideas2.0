@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :admins
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
@@ -14,6 +15,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks", registrations: "registrations" }
 
   root 'home#index'
+  get 'user/profile/:id', to: 'user#profile', as: 'user_profile'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
