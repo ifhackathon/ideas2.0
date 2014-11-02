@@ -1,18 +1,23 @@
-%h1 New estimate
-- all =[]
-- @project.project_finance_costs.each do |project_finance_cost|
-  - all<< [project_finance_cost.name, "#{project_finance_cost.id.to_s}-fc" ]
-- @project.project_materials.each do |project_material|
-  - all<< [project_material.name, "#{project_material.id.to_s}-pm" ]
-- @project.project_people_times.each do |project_people_time|
-  - all<< [project_people_time.name, "#{project_people_time.id.to_s}-ppt" ]
-.row
-  = simple_form_for(@estimate, url: help_create_project_estimates_path(@project)) do |f|
-    = f.error_notification
+%section.row
+  %h2 Допомогти проекту
+  - all =[]
+  - @project.project_finance_costs.each do |project_finance_cost|
+    - all<< [project_finance_cost.name, "#{project_finance_cost.id.to_s}-fc" ]
+  - @project.project_materials.each do |project_material|
+    - all<< [project_material.name, "#{project_material.id.to_s}-pm" ]
+  - @project.project_people_times.each do |project_people_time|
+    - all<< [project_people_time.name, "#{project_people_time.id.to_s}-ppt" ]
+  .row
+    = simple_form_for(@estimate, url: help_create_project_estimates_path(@project)) do |f|
+      = f.error_notification
 
-    .form-inputs
-      = f.input :estimateble_id, collection: all
-      = f.input :value
+      .form-inputs
+        = f.input :estimateble_id, collection: all
+        = f.input :value
 
-    .form-actions
-      = f.button :submit
+      .form-inputs
+        = f.input :phone, input_html: {value: current_user.phone}
+        = f.input :email, input_html: {value: current_user.email}
+
+      .form-actions
+        = f.button :submit

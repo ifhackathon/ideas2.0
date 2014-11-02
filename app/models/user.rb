@@ -20,6 +20,7 @@
 #  uid                    :string(255)
 #  image                  :string(255)
 #  url                    :string(255)
+#  phone                  :string(255)
 #
 
 class User < ActiveRecord::Base

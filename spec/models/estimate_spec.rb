@@ -11,6 +11,8 @@
 #  created_at       :datetime
 #  updated_at       :datetime
 #  project_id       :integer
+#  phone            :string(255)
+#  email            :string(255)
 #
 
 require 'rails_helper'

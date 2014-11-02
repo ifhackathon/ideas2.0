@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141101200401) do
+ActiveRecord::Schema.define(version: 20141102042605) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20141101200401) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "project_id"
+    t.string   "phone"
+    t.string   "email"
   end
 
   add_index "estimates", ["estimateble_id"], name: "index_estimates_on_estimateble_id"
@@ -113,6 +115,7 @@ ActiveRecord::Schema.define(version: 20141101200401) do
     t.string   "uid"
     t.string   "image"
     t.string   "url"
+    t.string   "phone"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

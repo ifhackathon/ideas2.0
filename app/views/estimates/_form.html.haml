@@ -5,5 +5,9 @@
     .form-inputs
       = f.input :value
 
+    .form-inputs
+      = f.input :phone, input_html: {value: current_user.phone}
+      = f.input :email, input_html: {value: current_user.email}
+
     .form-actions
       = f.button :submit
