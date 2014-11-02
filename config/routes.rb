@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
   get 'user/profile/:id', to: 'user#profile', as: 'user_profile'
+  get 'user/project', to: 'user#project', as: 'user_project'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

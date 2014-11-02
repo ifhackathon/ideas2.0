@@ -13,6 +13,7 @@
         %li.has-dropdown
           %a{href: "#"}= current_user.name
           %ul.dropdown
+            %li= link_to('Проекти', user_project_path)
             %li= link_to('Змінити дані', edit_user_registration_path)
             %li= link_to 'Вихід', destroy_user_session_path, method: 'delete'
       - else

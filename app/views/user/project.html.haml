@@ -1,0 +1,46 @@
+%section.row
+  .medium-12.columns
+    %h2 Проекти
+    - @user_projects.each_slice(4) do |slice|
+      .row.project-list
+        - slice.each do |project|
+          .medium-3.large-4.text-center.columns{class: ('end' if project == slice.last)}
+            .project
+              -if project.photo.present?
+                =image_tag(project.photo_url(:thumb))
+              -else
+                %img{src: "http://placehold.it/220x220&text=[things]"}/
+              %h5
+                = link_to project.name, project
+              .date= project.date_to
+              .status= project.status
+              .total-support
+                Підтримало
+                = project.estimates.count
+              %hr
+              -if project.estimates
+                - project.estimates.each do |estimate|
+                  -if estimate.estimateble_type == 'ProjectPeopleTime'
+                    %h5
+                      = estimate.value+ ' днів'
+                      .name= estimate.estimateble.name
+                      .project= link_to estimate.project.name, estimate.project
+                      .uname= estimate.user.name
+                      .email= estimate.user.email
+                      .phone= estimate.user.phone
+                  -if estimate.estimateble_type == 'ProjectFinanceCost'
+                    %h5
+                      = estimate.value+ ' грн'
+                      .name= estimate.estimateble.name
+                      .project= link_to estimate.project.name, estimate.project
+                      .uname= estimate.user.name
+                      .email= estimate.user.email
+                      .phone= estimate.user.phone
+                  -if estimate.estimateble_type == 'ProjectMaterial'
+                    %h5
+                      = estimate.value+estimate.estimateble.measure
+                      .name= estimate.estimateble.name
+                      .project= link_to estimate.project.name, estimate.project
+                      .uname= estimate.user.name
+                      .email= estimate.user.email
+                      .phone= estimate.user.phone
